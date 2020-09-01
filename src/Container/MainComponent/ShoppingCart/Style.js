@@ -4,20 +4,18 @@ export const CartWrapper = styled.div`
   border: 1px solid #e0e0e0;
   margin-top: 20px;
   padding: 20px;
-  /* width: 100%; */
+  @media (max-width) {
+    width: 100%;
+  }
 `;
 
 export const CardWrapper = styled.div`
   display: flex;
   margin-bottom: 20px;
-  /* padding-bottom: 20px; */
-  /* border-bottom: 1px solid #f8f8f8; */
 `;
 
 export const ImageWrapper = styled.div`
   width: 30%;
-  /* width: 50px; */
-  /* display: inline-block; */
   border: 1px solid #f8f8f8;
   border-radius: 5px;
 `;
@@ -52,7 +50,6 @@ export const IncrementWrapper = styled.div`
   display: inline-block;
   height: 10px;
   width: 10px;
-  /* border: 2px solid red; */
   margin-right: 10px;
 `;
 
@@ -95,9 +92,10 @@ export const CheckOut = styled.button`
   border: none;
   outline: none;
   padding: 15px 5px;
-  background-color: #44b272;
+  background-color: ${({ theme }) => theme.background};
   &:hover {
     background: black;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
   }
 `;

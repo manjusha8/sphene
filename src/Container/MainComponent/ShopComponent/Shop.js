@@ -11,35 +11,38 @@ import {
 } from "./ShopStyle";
 import ProductsWrapper from "./ProductsWrapper";
 import { useEffect } from "react";
+import Hoc from "../../HOCComponents/Hoc";
 
 function Shop(props) {
   const [data, setData] = useState();
 
-  // useEffect(() => {
-  //   let response = props.location.state;
-  //   if (response === null || response === {} || response === undefined) {
-  //     console.log("null");
-  //   } else {
-  //     setData(response.data);
-  //     console.log("data: ", data);
-  //   }
-  // }, []);
+  useEffect(() => {
+    let response = props.location.state;
+    if (response === null || response === undefined || response === "") {
+      // console.log("null");
+    } else {
+      setData(response.data);
+      console.log("data in useeffect: ", response.data);
+    }
+  }, [data]);
 
   return (
-    <Wrapper>
-      <div>
-        <ImageWrapper>
-          <Image src={ShopImage} alt="shop-banner" />
-          <ImageBackground>
-            <BannerContent>
-              <BannerShop>SHOP</BannerShop>
-              <BannerMustShop>Our Must Have Products</BannerMustShop>
-            </BannerContent>
-          </ImageBackground>
-        </ImageWrapper>
-        <ProductsWrapper data={data} />
-      </div>
-    </Wrapper>
+    <Hoc>
+      <Wrapper>
+        <div>
+          <ImageWrapper>
+            <Image src={ShopImage} alt="shop-banner" />
+            <ImageBackground>
+              <BannerContent>
+                <BannerShop>SHOP</BannerShop>
+                <BannerMustShop>Our Must Have Products</BannerMustShop>
+              </BannerContent>
+            </ImageBackground>
+          </ImageWrapper>
+          <ProductsWrapper data={data} />
+        </div>
+      </Wrapper>
+    </Hoc>
   );
 }
 

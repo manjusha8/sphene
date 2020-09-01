@@ -3,6 +3,17 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
+  @media (max-width: 375px) {
+    display: block;
+  }
+  @media (max-width: 425px) {
+    display: block;
+  }
+  @media (max-width: 320px) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -10,11 +21,32 @@ export const CardWrapper = styled.div`
   margin: 0 20px 20px 0;
   height: 100%;
   border: 1px solid #e0e0e0;
+  cursor: pointer;
+  @media (max-width: 375px) {
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+  @media (max-width: 425px) {
+    width: 80% !important;
+    margin: 0px auto 20px !important;
+  }
+  @media (max-width: 320px) {
+    width: 100% !important;
+    margin: 0px auto 20px !important;
+  }
+  @media (max-width: 768px) {
+    width: 250px;
+    margin: 0 10px 10px 0;
+  }
 `;
 
 export const ImageWrapper = styled.div`
   height: 225px;
   position: relative;
+  @media (max-width: 320px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Image = styled.img`
@@ -31,11 +63,13 @@ export const CartIcon = styled.div`
   position: absolute;
   bottom: 0;
   right: 0;
+  @media (max-width: 320px) {
+    bottom: 4px;
+  }
 `;
 
 export const IconWrapper = styled.div`
   padding: 5px;
-  transition: height 2s;
 `;
 
 export const ContentWrapper = styled.div`
@@ -45,6 +79,9 @@ export const ContentWrapper = styled.div`
   font-size: 16px;
   color: #666;
   line-height: 26px;
+  @media (max-width: 320px) {
+    padding: 10px;
+  }
 `;
 
 export const ProductName = styled.div`

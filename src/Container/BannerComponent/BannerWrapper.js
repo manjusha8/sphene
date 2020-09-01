@@ -22,6 +22,7 @@ function BannerWrapper() {
         currentSlide={currentSlide}
         slidesPerPage={slidesPerPage}
         setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
       />
     </div>
   );

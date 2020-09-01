@@ -8,6 +8,15 @@ export const Headline = styled.h3`
     sans-serif;
   letter-spacing: 0.5px;
   font-weight: 500;
+  @media (max-width: 375px) {
+    width: 100%;
+  }
+  @media (max-width: 425px) {
+    width: 100%;
+  }
+  @media (max-width: 320px) {
+    width: 100%;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -15,12 +24,24 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   margin: 30px auto;
   height: 500px;
+  @media (max-width: 375px) {
+    display: block;
+    margin: 0 auto;
+  }
+  @media (max-width: 425px) {
+    display: block;
+  }
 `;
 
 export const ProductWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  cursor: pointer;
+  @media (max-width: 375px) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const ContentHover = styled.div`
@@ -33,6 +54,10 @@ export const ContentHover = styled.div`
   margin-left: -50px;
   box-shadow: 1px 1px 3px rgba(136, 136, 136, 0.19);
   border-radius: 50px;
+  @media (max-width: 375px) {
+    padding: 10px 20px;
+    left: 50%;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -40,25 +65,57 @@ export const CardWrapper = styled.div`
   height: 49%;
   margin: 0 20px 12px 0;
   position: relative;
+  cursor: pointer;
+  @media (max-width: 375px) {
+    width: 100%;
+  }
+  @media (max-width: 425px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  /* transition: 0.5s all ease-in-out; */
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.1);
+  }
+  @media (max-width: 375px) {
+    width: 100%;
+  }
+  @media (max-width: 425px) {
+    width: 100%;
   }
 `;
 
 export const LeftWrapper = styled.div`
   width: 35%;
   margin-right: 30px;
+  @media (max-width: 320px) {
+    width: 100% !important;
+  }
+  @media (max-width: 375px) {
+    width: 100% !important;
+  }
+  @media (max-width: 425px) {
+    width: 100% !important;
+  }
+  @media (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const RightWrapper = styled.div`
   width: 65%;
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 375px) {
+    width: 100%;
+    display: block;
+  }
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `;

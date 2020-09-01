@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import {
   Wrapper,
   CardWrapper,
@@ -15,33 +15,42 @@ import {
 import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import ProductsNotAvailable from "../../NothingFound/ProductsNotAvailable";
+import StateContext from "../../Context/StateContext";
 
 function AllCardsComponent(props) {
   const [isShown, setIsShown] = useState(false);
 
-  let tempCards = props.tempCards;
-  let products = props.products;
-  if (tempCards.length !== 0) {
-    products = tempCards;
-  }
+  const { filterPrice } = useContext(StateContext);
+  const { notAvailable } = useContext(StateContext);
+  const { tempCards } = useContext(StateContext);
+  const { products } = useContext(StateContext);
+  const { clicked } = useContext(StateContext);
 
+  // let tempCards = tempCards;
+  let cards = products;
+  if (tempCards.length !== 0) {
+    cards = tempCards;
+  }
   function clickHandler(id) {
     setIsShown(id);
   }
 
   return (
     <div>
-      {products.length !== null ? (
+      {!notAvailable ? (
         <Wrapper>
-          {products.map((product, index) => {
-            if (product.price <= props.filterPrice)
+          {cards.map((product, index) => {
+            if (product.price <= filterPrice) {
               return (
                 <CardWrapper key={index}>
                   <ImageWrapper onMouseOver={() => clickHandler(index)}>
-                    <Image src={product.url} alt="products" />
+                    <Image
+                      src={require(`../../assests/${product.url}`)}
+                      alt="products"
+                    />
                     <CartIcon
                       active={isShown === index}
-                      onClick={() => props.clicked(index)}
+                      onClick={() => clicked(product)}
                     >
                       <IconWrapper>
                         <FaShoppingCart color={"#fff"} />
@@ -61,12 +70,12 @@ function AllCardsComponent(props) {
                   </ContentWrapper>
                 </CardWrapper>
               );
+            }
           })}
         </Wrapper>
       ) : (
         <div>
-          {" "}
-          <ProductsNotAvailable />{" "}
+          <ProductsNotAvailable />
         </div>
       )}
     </div>

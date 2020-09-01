@@ -6,18 +6,42 @@ import {
   FormWrapper,
   Label,
   Input,
+  PasswordWrapper,
+  Show,
   ButtonWrapper,
   SignupButton,
   LoginButton,
+  Error,
 } from "./Style";
 import { withRouter } from "react-router-dom";
+import fire from "../../Config/Fire";
+import firebase from "firebase";
 
 function Login(props) {
   const [images] = useState(require("../../assests/backpack.jpg"));
-  // const [email]
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [type, setType] = useState("password");
 
-  function submitHandler() {
-    props.history.push("/home");
+  function submitHandler(e) {
+    e.preventDefault();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log("user in login: ", user);
+        props.history.push("/home");
+      })
+      .catch((err) => {
+        if (err.code === "auth/user-not-found") {
+          setError("New user!! Please Signup");
+        }
+        if (err.code === "auth/wrong-password") {
+          setError("incorrect Password");
+          console.log("error in login: ", err);
+        }
+      });
   }
 
   function signupHandler() {
@@ -31,16 +55,34 @@ function Login(props) {
       </ImageWrapper>
       <FormWrapper>
         <form onSubmit={submitHandler}>
+          <Error error={error}>{error}</Error>
           <Label>Email</Label>
-          <Input type="email" name="email" placeholder="enter your email" />
-          <Label>Password</Label>
           <Input
-            type="password"
-            name="password"
-            placeholder="enter your password"
+            type="email"
+            name="email"
+            placeholder="enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
+          <Label>Password</Label>
+          <PasswordWrapper>
+            <Input
+              type={type}
+              name="password"
+              placeholder="enter your password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <Show
+              onClick={() => {
+                type === "password" ? setType("text") : setType("password");
+              }}
+            >
+              {type === "password" ? "show" : "hide"}
+            </Show>
+          </PasswordWrapper>
           <ButtonWrapper>
-            <SignupButton onClick={signupHandler} active={false}>
+            <SignupButton onClick={signupHandler} active={false} type="button">
               Signup
             </SignupButton>
             <LoginButton active={true} type="submit">

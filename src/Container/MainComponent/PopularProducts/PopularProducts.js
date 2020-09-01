@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   PopularProductsWrapper,
   Wrapper,
@@ -9,47 +9,36 @@ import {
   ProductPrice,
   OfferPrice,
 } from "./Style";
+import StateContext from "../../Context/StateContext";
 
-function PopularProducts() {
-  const [products] = useState([
-    {
-      url: require("../../assests/backpack.jpg"),
-      name: "Red Backpacks",
-      price: 49,
-      offerprice: "",
-    },
-    {
-      url: require("../../assests/cap.jpg"),
-      name: "Cap",
-      price: 10,
-      offerprice: 6,
-    },
-    {
-      url: require("../../assests/sunglasses.jpg"),
-      name: "Sunglasses",
-      price: 29,
-      offerprice: 25,
-    },
-  ]);
+function PopularProducts(props) {
+  const { products } = useContext(StateContext);
 
   return (
     <PopularProductsWrapper>
-      {products.map((products, index) => (
-        <Wrapper key={index}>
-          <ImageWrapper>
-            <Image src={products.url} alt="products" />
-          </ImageWrapper>
-          <ContentWrapper>
-            <ProductName>{products.name}</ProductName>
-            <ProductPrice offerprice={products.offerprice}>
-              ${products.price}
-            </ProductPrice>
-            <OfferPrice offerprice={products.offerprice}>
-              ${products.offerprice}
-            </OfferPrice>
-          </ContentWrapper>
-        </Wrapper>
-      ))}
+      {products.map((products, index) => {
+        if (products.offerprice) {
+          return (
+            <Wrapper key={index}>
+              <ImageWrapper>
+                <Image
+                  src={require(`../../assests/${products.url}`)}
+                  alt="products"
+                />
+              </ImageWrapper>
+              <ContentWrapper>
+                <ProductName>{products.name}</ProductName>
+                <ProductPrice offerprice={products.offerprice}>
+                  ${products.price}
+                </ProductPrice>
+                <OfferPrice offerprice={products.offerprice}>
+                  ${products.offerprice}
+                </OfferPrice>
+              </ContentWrapper>
+            </Wrapper>
+          );
+        }
+      })}
     </PopularProductsWrapper>
   );
 }

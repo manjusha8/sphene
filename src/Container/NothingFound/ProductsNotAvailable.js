@@ -1,11 +1,16 @@
 import React from "react";
+import { Wrapper, ButtonWrapper, Button } from "./Style";
 
 function ProductsNotAvailble(props) {
   return (
-    <div>
-      Ooppss Nothing Found ..!!
-      <button>view products</button>
-    </div>
+    <Wrapper>
+      Oops Nothing Found ..!!
+      <ButtonWrapper>
+        <a href="/shop">
+          <Button> view products</Button>
+        </a>
+      </ButtonWrapper>
+    </Wrapper>
   );
 }
 

@@ -16,10 +16,11 @@ function Pagination(props) {
   return (
     <>
       <ListContainer>
-        {number.map((number) => (
-          <List key={number}>
-            <FaCircle onClick={() => props.paginate(number)} />
-          </List>
+        {number.map((number, index) => (
+          <List
+            active={number === props.currentPage}
+            onClick={() => props.paginate(number)}
+          ></List>
         ))}
       </ListContainer>
     </>

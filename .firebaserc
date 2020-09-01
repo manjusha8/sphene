@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "react-my-recipe-page",
+    "staging": "react-sphene-app-80aae"
+  }
+}

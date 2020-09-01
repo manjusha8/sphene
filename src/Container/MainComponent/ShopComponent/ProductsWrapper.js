@@ -2,99 +2,44 @@ import React, { Component } from "react";
 import { MainShopWrapper, Count, LeftWrapper, RightWrapper } from "./ShopStyle";
 import AllCardsComponent from "../CardsComponent/AllCardsComponent";
 import SideBar from "../SideBarComponent/SideBar";
+import ImageSideBar from "../ImageSideBar/ImageSideBar";
+import instance from "../../Axios/axios";
+import Loader from "../../Loader/Loader";
+import firebase from "firebase";
+import fire from "../../Config/Fire";
+import StateContext from "../../Context/StateContext";
+// import DispatchContext from "../../Context/DispatchContext";
 
 class ProductsWrapper extends Component {
   state = {
-    products: [
-      {
-        url: require("../../assests/backpack.jpg"),
-        name: "Red Backpacks",
-        price: 49,
-        offerprice: "",
-        quantity: 1,
-        id: 0,
-      },
-      {
-        url: require("../../assests/cap.jpg"),
-        name: "Cap",
-        price: 10,
-        offerprice: 6,
-        quantity: 1,
-        id: 1,
-      },
-      {
-        url: require("../../assests/handbags.jpg"),
-        name: "Handbag",
-        price: 9,
-        offerprice: "",
-        quantity: 1,
-        id: 2,
-      },
-      {
-        url: require("../../assests/shirt.jpg"),
-        name: "Shirt",
-        price: 19,
-        offerprice: "",
-        quantity: 1,
-        id: 3,
-      },
-      {
-        url: require("../../assests/shoes.jpg"),
-        name: "Casual Shoes",
-        price: 79,
-        offerprice: "",
-        quantity: 1,
-        id: 4,
-      },
-      {
-        url: require("../../assests/ties.jpg"),
-        name: "Tie",
-        price: 9,
-        offerprice: "",
-        quantity: 1,
-        id: 5,
-      },
-      {
-        url: require("../../assests/tshirt.jpg"),
-        name: "T-shirt",
-        price: 19,
-        offerprice: 14,
-        quantity: 1,
-        id: 6,
-      },
-      {
-        url: require("../../assests/wallet.jpg"),
-        name: "Wallet",
-        price: 79,
-        offerprice: 69,
-        quantity: 1,
-        id: 7,
-      },
-      {
-        url: require("../../assests/watch.jpg"),
-        name: "Tie",
-        price: 179,
-        offerprice: "",
-        quantity: 1,
-        id: 8,
-      },
-      {
-        url: require("../../assests/sunglasses.jpg"),
-        name: "Sunglasses",
-        price: 29,
-        offerprice: 25,
-        quantity: 1,
-        id: 9,
-      },
-    ],
+    products: [],
     selectedProducts: [],
     tempCards: [],
     price: 10,
+    notAvailable: false,
+    loading: true,
+    media: 0,
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      instance
+        .get("/.json")
+        .then((response) => {
+          console.log("response data: ", response.data.ShopProducts);
+          this.setState({
+            loading: false,
+            products: response.data.ShopProducts,
+          });
+        })
+        .catch((err) => console.log(err));
+    }, 2000);
+  }
 
   handleInputChange = (e) => {
     let input = e.target.value;
     let cards = [];
+    let notAvailable = false;
     if (input.length === 0) {
       this.setState({
         tempCards: [],
@@ -102,14 +47,20 @@ class ProductsWrapper extends Component {
     } else {
       let temp = [...this.state.products];
       cards = temp.filter((cards) => {
-        // if (temp.name.toLowerCase().includes(input.toLowerCase())) {
-        // cards.push(temp);
-        return temp.name.toLowerCase().includes(input.toLowerCase());
+        return cards.name.toLowerCase().includes(input.toLowerCase());
       });
+      if (cards.length === 0) {
+        notAvailable = true;
+        console.log("handle input: ", notAvailable);
+      }
+      console.log("handle input cards length: ", cards.length);
+      console.log("handle input cards : ", cards);
     }
     this.setState({
       tempCards: cards,
+      notAvailable: notAvailable,
     });
+    console.log("state available: ", this.state.notAvailable);
   };
 
   closeHandler = (id) => {
@@ -148,7 +99,7 @@ class ProductsWrapper extends Component {
     let temp = [...this.state.selectedProducts];
     temp.map((value, key) => {
       if (value.id === id) {
-        if (value.quantity >= 1) {
+        if (value.quantity > 1) {
           value.quantity = value.quantity - 1;
         }
       }
@@ -158,17 +109,32 @@ class ProductsWrapper extends Component {
     });
   };
 
-  cartHandler = (id) => {
+  cartHandler = (product) => {
     let temp = [...this.state.selectedProducts];
-    this.state.products.map((value, key) => {
-      if (id === key) {
-        temp.push(value);
-      }
-    });
+    let flag = false;
+    if (this.state.selectedProducts.length !== 0) {
+      this.state.selectedProducts.map((value, index) => {
+        if (value.id === product.id) {
+          flag = true;
+        }
+      });
+    }
+    if (this.state.selectedProducts.length === 0 || !flag) {
+      temp.push(product);
+    }
+
     this.setState({
       selectedProducts: temp,
     });
-    console.log("selectedProducts", this.state.selectedProducts);
+    let db = firebase.database();
+    let users = db.ref().child("users");
+    let uid = users.child(fire.auth().currentUser.uid);
+    let checkout = uid.child("checkout");
+    checkout.set({
+      products: temp,
+    });
+
+    console.log("setting selectedProducts to db", temp);
   };
 
   handleFilterChange = (event, newValue) => {
@@ -177,30 +143,70 @@ class ProductsWrapper extends Component {
     });
   };
 
+  onSorting = (e) => {
+    let option = e.target.value;
+    let sortedList = [...this.state.products];
+    sortedList.sort((a, b) => {
+      return option === "desc"
+        ? a.name >= b.name
+          ? -1
+          : 1
+        : a.name <= b.name
+        ? -1
+        : 1;
+    });
+
+    this.setState({ products: sortedList });
+  };
+
   render() {
     return (
-      <MainShopWrapper>
-        <LeftWrapper>
-          <Count>Showing 1–{this.state.products.length} of 23 results</Count>
-          <AllCardsComponent
-            products={this.state.products}
-            tempCards={this.state.tempCards}
-            clicked={this.cartHandler}
-            filterPrice={this.state.price}
-          />
-        </LeftWrapper>
-        <RightWrapper>
-          <SideBar
-            selectedProducts={this.state.selectedProducts}
-            closeHandler={this.closeHandler}
-            incrementHandler={this.incrementHandler}
-            decrementHandler={this.decrementHandler}
-            handleInputChange={this.handleInputChange}
-            price={this.state.price}
-            handleFilterChange={this.handleFilterChange}
-          />
-        </RightWrapper>
-      </MainShopWrapper>
+      <StateContext.Provider
+        value={{
+          notAvailable: this.state.notAvailable,
+          filterPrice: this.state.price,
+          tempCards: this.state.tempCards,
+          products: this.props.data ? this.props.data : this.state.products,
+          clicked: this.cartHandler,
+
+          selectedProducts: this.state.selectedProducts,
+          closeHandler: this.closeHandler,
+          incrementHandler: this.incrementHandler,
+          decrementHandler: this.decrementHandler,
+          handleInputChange: this.handleInputChange,
+          handleFilterChange: this.handleFilterChange,
+          onSorting: this.onSorting,
+        }}
+      >
+        {/* <DispatchContext.Provider> */}
+        <MainShopWrapper>
+          <LeftWrapper>
+            {!this.state.loading ? (
+              <div>
+                <Count>
+                  Showing 1–
+                  {this.props.data
+                    ? this.props.data.length
+                    : this.state.products.length}{" "}
+                  of 23 results
+                </Count>
+
+                <AllCardsComponent />
+              </div>
+            ) : (
+              <Loader />
+            )}
+          </LeftWrapper>
+          <RightWrapper>
+            {!this.props.data ? (
+              <SideBar />
+            ) : (
+              <ImageSideBar data={this.props.data} />
+            )}
+          </RightWrapper>
+        </MainShopWrapper>
+        {/* </DispatchContext.Provider> */}
+      </StateContext.Provider>
     );
   }
 }
