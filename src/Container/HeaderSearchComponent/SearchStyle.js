@@ -15,7 +15,7 @@ export const TodosWrapper = styled.div`
   /* max-width: 1200px; */
 `;
 
-export const Todos = styled.div`
+export const Todos = styled.h3`
   border-top: 1px solid #f8f8f8;
   padding: 10px;
   text-align: center;

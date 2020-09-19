@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { SideBarWrapper, Title } from "./Style";
 import Search from "../SearchComponent/Search";
 import Filter from "../../FilterComponent/Filter";
@@ -6,32 +6,18 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import PopularProducts from "../PopularProducts/PopularProducts";
 import Sort from "../SortComponent/Sort";
 
-function SideBar(props) {
+function SideBar() {
   return (
     <SideBarWrapper>
       <Title>Search</Title>
-      <Search
-      // handleInputChange={props.handleInputChange}
-      />
-      <Filter
-      // price={props.price}
-      // handleFilterChange={props.handleFilterChange}
-      />
+      <Search />
+      <Filter />
       <Title>Shopping Cart</Title>
-      <ShoppingCart
-      // selectedProducts={props.selectedProducts}
-      // closeHandler={props.closeHandler}
-      // incrementHandler={props.incrementHandler}
-      // decrementHandler={props.decrementHandler}
-      />
+      <ShoppingCart />
       <Title>Popular Products</Title>
-      <PopularProducts
-      // products={props.products}
-      />
+      <PopularProducts />
       <Title>Sort By</Title>
-      <Sort
-      // onSorting={props.onSorting}
-      />
+      <Sort />
     </SideBarWrapper>
   );
 }

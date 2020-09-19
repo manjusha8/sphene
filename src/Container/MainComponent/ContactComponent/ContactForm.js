@@ -38,7 +38,6 @@ function ContactForm() {
     let users = db.ref().child("users");
     let uid = users.child(fire.auth().currentUser.uid);
     let newFeedback = uid.child("feedback").push();
-    // let user = newFeedback.child(fire.auth().currentUser.uid).push();
     newFeedback.set({
       message: message,
       subject: feeback,

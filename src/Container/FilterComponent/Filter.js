@@ -1,12 +1,9 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import Grid from "@material-ui/core/Grid";
-// import Typography from "@material-ui/core/Typography";
+
 import Slider from "@material-ui/core/Slider";
 import StateContext from "../Context/StateContext";
-// import VolumeDown from "@material-ui/icons/VolumeDown";
-// import VolumeUp from "@material-ui/icons/VolumeUp";
 
 const useStyles = makeStyles({
   root: {
@@ -20,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ContinuousSlider(props) {
+export default function ContinuousSlider() {
   const classes = useStyles();
 
   const { filterPrice } = useContext(StateContext);

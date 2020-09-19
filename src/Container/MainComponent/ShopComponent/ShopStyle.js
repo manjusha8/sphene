@@ -91,21 +91,32 @@ export const Count = styled.div`
   }
 `;
 
+export const Wrong = styled.div`
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  text-align: center;
+  color: #d72121;
+`;
+
 export const MainShopWrapper = styled.div`
   max-width: 1200px;
   margin: 20px auto;
   display: flex;
   @media (max-width: 375px) {
-    margin: 0;
+    margin: 0px auto;
     display: block;
   }
   @media (max-width: 425px) {
-    margin: 0;
+    margin: 0px auto;
     display: block;
   }
   @media (max-width: 320px) {
-    margin: 0;
+    margin: 0px auto;
     display: block;
+  }
+  @media (max-width: 768px) {
+    margin: 0px auto;
   }
 `;
 

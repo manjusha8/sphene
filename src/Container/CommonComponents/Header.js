@@ -8,7 +8,6 @@ import {
   LinkTag,
   IconsContainer,
   Icons,
-  Cart,
   Counter,
   Search,
   LogoutWrapper,
@@ -17,6 +16,7 @@ import {
   MobileLink,
   MobileTag,
 } from "./HeaderStyle";
+import { connect } from "react-redux";
 import HeaderSearch from "../HeaderSearchComponent/HeaderSearch";
 import Menu from "@material-ui/icons/Menu";
 import fire from "../Config/Fire";
@@ -45,13 +45,34 @@ function Header(props) {
   };
 
   const handleKeyPress = (e) => {
-    let temp = [...todos];
-    if (e.key === "Enter") {
-      let input = e.target.value;
-      temp.push(e.target.value);
+    let input = e.target.value;
+    let suggestions = [];
+    let temp = [
+      "caps for men",
+      "caps for women",
+      "caps",
+      "shirt",
+      "t-shirt",
+      "watches for men",
+      "watches for women",
+      "sunglasses",
+      "Ties",
+      "shoes for kids",
+      "shoes",
+      "backpacks",
+      "wallet",
+      "handbags",
+    ];
+    if (input.length !== 0) {
+      // temp.push(e.target.value);
       // setTodos((todos) => [...todos, input]);
-      setTodos(temp);
+      suggestions = temp.filter((todos) => {
+        return todos.toLowerCase().includes(input.toLowerCase());
+      });
+      setTodos(suggestions);
       console.log("todos: ", todos);
+    } else {
+      setTodos(suggestions);
     }
   };
 
@@ -82,16 +103,16 @@ function Header(props) {
               <Icons>
                 <LinkTag to="/cart">
                   <FaShoppingCart />
-                  {/* <Counter>{props.cartCount}</Counter> */}
-                  <Counter>1</Counter>
-                  {/* {console.log("cart counter: ", props.cartCount)} */}
+                  <Counter>{props.cartCount}</Counter>
+                  {/* <Counter>1</Counter> */}
+                  {console.log("cart counter: ", props.cartCount)}
                 </LinkTag>
               </Icons>
               <Icons>
                 <Menu onClick={menuHandler} />
                 {mobile ? (
                   <MobileWrapper>
-                    {navLinks.map((nav, index) => (
+                    {navLinks.map((nav) => (
                       <MobileTag>
                         <MobileLink
                           active={window.location.pathname === nav.url}
@@ -129,13 +150,13 @@ function Header(props) {
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    cartCount: state.cartCount,
+  };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ComponentName);
-
-// const mapStateToProps = (state) => ({
-//   ...state,
-// });
+export default connect(mapStateToProps, null)(Header);
 
 // const mapDispatchToProps = (dispatch) => ({
 //   CartCountAction: () => dispatch(CartCountAction),

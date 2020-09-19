@@ -4,15 +4,12 @@ import { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Hoc from "../../HOCComponents/Hoc";
 import { Empty, TitleBar, Delivery } from "./Style";
-import firebase from "firebase";
-import fire from "../../Config/Fire";
+
 import StateContext from "../../Context/StateContext";
 
-function Cart(props) {
+function Cart() {
   const location = useLocation();
   const [data, setData] = useState();
-  const [count, setCount] = useState(0);
-  const [date, setDate] = useState();
 
   useEffect(() => {
     console.log("use effect");

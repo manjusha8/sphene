@@ -31,7 +31,9 @@ function Login(props) {
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         console.log("user in login: ", user);
-        props.history.push("/home");
+        setTimeout(() => {
+          props.history.push("/home");
+        }, 500);
       })
       .catch((err) => {
         if (err.code === "auth/user-not-found") {

@@ -25,13 +25,6 @@ function Signup(props) {
   const [type, setType] = useState("password");
   const [images] = useState(require("../../assests/backpack.jpg"));
   const [error, setError] = useState("");
-  const [media, setMedia] = useState();
-
-  // useEffect(() => {
-  //   window.addEventListener("resize", () => {
-  //     setMedia(document.body.clientWidth);
-  //   });
-  // }, [media]);
 
   function isValidate() {
     if (name.length < 4) {

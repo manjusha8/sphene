@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import {
   Wrapper,
   CardWrapper,
@@ -16,17 +16,16 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useState } from "react";
 import ProductsNotAvailable from "../../NothingFound/ProductsNotAvailable";
 import StateContext from "../../Context/StateContext";
+import store, { WISH_LIST } from "../../../Redux/Store";
 
-function AllCardsComponent(props) {
+function AllCardsComponent() {
   const [isShown, setIsShown] = useState(false);
 
   const { filterPrice } = useContext(StateContext);
   const { notAvailable } = useContext(StateContext);
   const { tempCards } = useContext(StateContext);
   const { products } = useContext(StateContext);
-  const { clicked } = useContext(StateContext);
 
-  // let tempCards = tempCards;
   let cards = products;
   if (tempCards.length !== 0) {
     cards = tempCards;
@@ -50,7 +49,9 @@ function AllCardsComponent(props) {
                     />
                     <CartIcon
                       active={isShown === index}
-                      onClick={() => clicked(product)}
+                      onClick={() =>
+                        store.dispatch({ type: WISH_LIST, value: product })
+                      }
                     >
                       <IconWrapper>
                         <FaShoppingCart color={"#fff"} />

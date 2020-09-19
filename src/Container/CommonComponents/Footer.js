@@ -19,7 +19,7 @@ import {
 } from "./FooterStyle";
 
 function Footer() {
-  const [helpfulLinks, setHelpfulLinks] = useState([
+  const [helpfulLinks] = useState([
     "About Us",
     "Press Realese",
     "Careers",
@@ -27,7 +27,7 @@ function Footer() {
     "Projects",
   ]);
 
-  const [helpful, setHelpful] = useState([
+  const [helpful] = useState([
     "In The News",
     "Our Blogs",
     "Testimonials",

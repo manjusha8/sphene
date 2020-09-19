@@ -29,7 +29,7 @@ import fire from "../../Config/Fire";
 import StateContext from "../../Context/StateContext";
 import UserContext from "../../Context/UserContext";
 
-function CheckOut(props) {
+function CheckOut() {
   const { user } = useContext(UserContext);
 
   let day = new Date().getDate() + 4;
@@ -70,8 +70,8 @@ function CheckOut(props) {
               <Title>Total</Title>
               <TitleDescription>Description</TitleDescription>
             </Header>
-            {data.map((value, index) => (
-              <DataRow>
+            {data.map((value) => (
+              <DataRow key={value.name}>
                 <TableDataImage>
                   <Image
                     src={require(`../../assests/${value.url}`)}

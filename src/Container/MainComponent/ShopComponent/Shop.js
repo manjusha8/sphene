@@ -19,10 +19,8 @@ function Shop(props) {
   useEffect(() => {
     let response = props.location.state;
     if (response === null || response === undefined || response === "") {
-      // console.log("null");
     } else {
       setData(response.data);
-      console.log("data in useeffect: ", response.data);
     }
   }, [data]);
 

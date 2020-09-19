@@ -8,7 +8,7 @@ import Shop from "../MainComponent/ShopComponent/Shop";
 import Contact from "../MainComponent/ContactComponent/Contact";
 import Cart from "../MainComponent/CartHandler/Cart";
 import PageNotFound from "../PageNotFound/PageNotFound";
-import UserProfile from "../MainComponent/UserProfileComponent/UserProfile";
+import Profile from "../MainComponent/UserProfileComponent/Profile";
 import UserContext from "../Context/UserContext";
 import { Component } from "react";
 
@@ -17,9 +17,6 @@ class Routing extends Component {
     user: {},
     uid: null,
   };
-
-  // const [user, setUser] = useState();
-  // const [Useruid, setUserUid] = useState();
 
   componentDidMount() {
     this.authListener();
@@ -55,7 +52,7 @@ class Routing extends Component {
               <Route path="/shop" exact component={Shop} />
               <Route path="/contact" exact component={Contact} />
               <Route path="/cart" exact component={Cart} />
-              <Route path="/profile" exact component={UserProfile} />
+              <Route path="/profile" exact component={Profile} />
               <Route path="*" component={PageNotFound} />
             </Switch>
           ) : (

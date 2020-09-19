@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Wrapper, LeftWrapper, RightWrapper, VideoWrapper } from "./Style";
 import ContactForm from "./ContactForm";
 import FindUs from "../FindUsComponent/FindUs";
-import Video from "../../VideoComponent/VideoComponent";
+// import Video from "../../VideoComponent/VideoComponent";
 import Hoc from "../../HOCComponents/Hoc";
 function Contact() {
   return (

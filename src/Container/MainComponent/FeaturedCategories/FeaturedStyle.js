@@ -30,6 +30,11 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 425px) {
     display: block;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    padding: 13px;
+    margin: 0 auto;
   }
 `;
 
@@ -68,10 +73,12 @@ export const CardWrapper = styled.div`
   cursor: pointer;
   @media (max-width: 375px) {
     width: 100%;
+    height: auto;
   }
   @media (max-width: 425px) {
     width: 100%;
     margin: 0;
+    height: auto;
   }
 `;
 
@@ -103,7 +110,7 @@ export const LeftWrapper = styled.div`
     width: 100% !important;
   }
   @media (max-width: 768px) {
-    width: 50%;
+    width: 35%;
   }
 `;
 
@@ -112,10 +119,17 @@ export const RightWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   @media (max-width: 375px) {
-    width: 100%;
-    display: block;
+    width: 100% !important;
+    display: block !important;
+    flex-wrap: nowrap;
   }
   @media (max-width: 425px) {
-    width: 100%;
+    width: 100% !important;
+    display: block !important;
+    flex-wrap: nowrap;
+  }
+  @media (max-width: 768px) {
+    width: 65%;
+    flex-wrap: nowrap;
   }
 `;

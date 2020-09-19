@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { ImageWrapper, Image } from "./BannerStyle";
+import React, { useState } from "react";
 import BannerImage from "./BannerImage";
 
 function BannerWrapper() {

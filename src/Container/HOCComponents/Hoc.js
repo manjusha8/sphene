@@ -19,8 +19,6 @@ import {
   purpleTheme,
   cyanTheme,
 } from "../Theme/Theme";
-// import {connect} from 'react-redux'
-// import CartCountAction from '../../Redux/CartCountAction'
 
 function Hoc(props) {
   const [theme, setTheme] = useState(redTheme);
@@ -122,11 +120,3 @@ function Hoc(props) {
 }
 
 export default Hoc;
-
-// const mapStateToProps = state => ({
-//   ...state
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   CartCountAction: () => dispatch(CartCountAction),
-// });

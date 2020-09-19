@@ -4,13 +4,13 @@ import userProfile from "../../assests/user-profile.jpg";
 export const ProfileWrapper = styled.div`
   text-align: center;
   /* background-image: url(${userProfile}); */
-  background: black;
+  background: white;
   opacity: 0.9;
   padding: 30px;
 `;
 
 export const Welcome = styled.h3`
-  color: white;
+  color: black;
   font-size: 42px;
   font-size: 46px;
   font-weight: 600;
@@ -35,13 +35,13 @@ export const UserDetails = styled.div``;
 
 export const Title = styled.h3`
   margin: 25px 0px;
-  color: white;
+  color: black;
 `;
 
 export const Value = styled.div`
   margin: 20px 0px;
-  color: white;
-  border-bottom: 1px solid white;
+  color: grey;
+  border-bottom: 1px solid grey;
   padding-bottom: 10px;
   position: relative;
 `;
@@ -53,32 +53,43 @@ export const Toggle = styled.button`
   margin: 13px;
   border: none;
   background: none;
-  color: blue;
+  color: #d72121;
   font-size: 16px;
+  outline: none;
 `;
 
 export const Input = styled.input`
   border: none;
   color: grey;
   background: none;
+  outline: none;
 `;
 
 export const FeedbackTitle = styled.div`
   margin: 25px 0px;
-  color: white;
+  color: black;
   display: inline-block;
   font-weight: 700;
 `;
 
 export const FeedbackValue = styled.div`
   margin: 20px 0px;
-  color: white;
+  color: grey;
   display: inline-block;
   margin-left: 20px;
 `;
 
 export const Empty = styled.div`
-  color: white;
+  color: #d72121;
+  @media (max-width: 375px) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: 425px) {
+    margin-bottom: 30px;
+  }
+  @media (max-width: 320px) {
+    margin-bottom: 30px;
+  }
 `;
 
 export const Feedback = styled.div`

@@ -6,11 +6,12 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   margin: 20px auto 11px;
   max-width: 1200px;
+
   @media (max-width: 375px) {
     margin: 20px 0 11px;
   }
   @media (max-width: 425px) {
-    margin: 20px 0 11px;
+    margin: 20px 0 11px !important;
   }
   @media (max-width: 320px) {
     margin: 20px 0 11px;
@@ -29,14 +30,15 @@ export const ListContainer = styled.ul`
   list-style-type: none;
   display: inline-block;
   margin: 0;
-  /* display: none; */
-  @media (max-width: 320px) {
+
+  @media (max-width: 375px) {
     display: none;
   }
   @media (max-width: 425px) {
     display: none;
   }
-  @media (max-width: 375px) {
+
+  @media (max-width: 320px) {
     display: none;
   }
 `;
@@ -44,12 +46,14 @@ export const ListContainer = styled.ul`
 export const ListItems = styled.li`
   display: inline-block;
   padding: 0px 15px;
+
   @media (max-width: 375px) {
     padding: 0px 5px;
   }
   @media (max-width: 425px) {
     padding: 0px 5px;
   }
+
   @media (max-width: 320px) {
     padding: 0px 2px;
   }
@@ -86,12 +90,14 @@ export const IconsContainer = styled.div`
 export const Icons = styled.span`
   padding: 0px 10px;
   position: relative;
+
   @media (max-width: 375px) {
     padding: 0 3px;
   }
   @media (max-width: 425px) {
     padding: 0 5px;
   }
+
   @media (max-width: 320px) {
     padding: 0;
   }
@@ -131,14 +137,16 @@ export const LogoutWrapper = styled.div`
   background-color: rgb(48, 49, 51);
   border-radius: 5px;
   text-align: center;
-  /* display: none; */
-  @media (max-width: 320px) {
+
+  @media (max-width: 375px) {
     display: none;
   }
+
   @media (max-width: 425px) {
     display: none;
   }
-  @media (max-width: 375px) {
+
+  @media (max-width: 320px) {
     display: none;
   }
 `;
@@ -151,29 +159,32 @@ export const Logout = styled.button`
   color: ${({ theme }) => theme.color};
   background: none;
   margin-top: 10px;
-  @media (max-width: 320px) {
+
+  @media (max-width: 375px) {
     text-align: center;
   }
+
   @media (max-width: 425px) {
     text-align: center;
   }
-  @media (max-width: 375px) {
+
+  @media (max-width: 320px) {
     text-align: center;
   }
 `;
 
 export const MobileWrapper = styled.div`
-  /* height: 100%; */
-  /* width: 30%; */
   background: white;
   display: none;
   z-index: 1;
   position: absolute;
   right: 0px;
   padding: 10px 20px;
+
   @media (max-width: 375px) {
     display: block;
   }
+
   @media (max-width: 425px) {
     display: block;
   }

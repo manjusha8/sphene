@@ -8,9 +8,8 @@ import {
   TodosWrapper,
   Todos,
   LinkTag,
-  TodosCloseIcon,
 } from "./SearchStyle";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 function HeaderSearch(props) {
   return (
     <>
@@ -18,7 +17,7 @@ function HeaderSearch(props) {
         <Input
           name="search"
           placeholder="search your products here ..."
-          onKeyPress={props.handleKeyPress}
+          onChange={props.handleKeyPress}
         />
         <CloseIcon>
           <Close onClick={() => props.search(false)}>
@@ -26,16 +25,18 @@ function HeaderSearch(props) {
           </Close>
         </CloseIcon>
         <TodosWrapper>
-          {props.todos.map((todos, index) => (
-            <LinkTag to="/shop">
-              <Todos key={todos}>
-                {todos}{" "}
-                {/* <TodosCloseIcon>
-                  <FaTimesCircle />{" "}
-                </TodosCloseIcon> */}
-              </Todos>
-            </LinkTag>
-          ))}
+          {props.todos.length > 0 ? (
+            props.todos.map((todos) => (
+              <LinkTag to="/shop">
+                <Todos key={todos}>{todos} </Todos>
+              </LinkTag>
+            ))
+          ) : (
+            <Todos>
+              Visit
+              <LinkTag to="/shop"> Shop</LinkTag>
+            </Todos>
+          )}
         </TodosWrapper>
       </SearchWrapper>
     </>

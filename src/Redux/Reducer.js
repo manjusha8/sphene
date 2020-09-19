@@ -1,7 +1,8 @@
 export default (state, action) => {
+  console.log("reducers : ", state);
   switch (action.type) {
-    case "cartCount":
-      return { cartCount: action.incrementCount };
+    case "CART_COUNT":
+      return { cartCount: state.cartCount };
 
     default:
       return state;

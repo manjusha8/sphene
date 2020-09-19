@@ -16,6 +16,9 @@ export const Wrapper = styled.div`
     display: block;
     padding: 10px;
   }
+  @media (max-width: 768px) {
+    margin: 20px auto;
+  }
 `;
 
 export const LeftWrapper = styled.div`

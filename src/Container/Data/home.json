@@ -1,0 +1,404 @@
+[
+    {
+        "url": "backpack.jpg",
+        "name": "Backpack",
+        "price": 49,
+        "offerprice": "",
+        "quantity": 1,
+        "id": 0,
+        "description": [
+          "Outer Material: Nylon, Color: Orange",
+          "Water resistance dimensions: 56.8cms x 33.6 cms x 5.4 cms (LxWxH)",
+          "Top loading pack with draw string opening for easy and quick access",
+          "Strengthened haul loop to take on heavier loads",
+          "Volume Capacity - 45 Liters"
+        ],
+        "relatedProducts": [
+          {
+            "url": "backpack-01.jpg",
+            "id": 0,
+            "name": "backpack",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "backpack-02.jpg",
+            "id": 1,
+            "name": "backpack",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "backpack-03.jpg",
+            "id": 2,
+            "name": "backpack",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "backpack-04.jpg",
+            "id": 3,
+            "name": "backpack",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "backpack-05.jpg",
+            "id": 4,
+            "name": "backpack",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          }
+        ]
+      },
+      {
+        "url": "shoes.jpg",
+        "name": "Casual Shoes",
+        "price": 79,
+        "offerprice": "",
+        "quantity": 1,
+        "id": 1,
+        "relatedProducts": [
+          {
+            "url": "shoes-01.jpg",
+            "id": 0,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+    
+          {
+    
+            "url": "shoes-02.jpg",
+            "id": 1,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 9,
+            "offerprice": 10
+          },
+    
+          {
+            "url": "shoes-03.jpg",
+            "id": 2,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 7,
+            "offerprice": 10
+          },
+          {
+            "url": "shoes-04.jpg",
+            "id": 3,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "shoes-05.jpg",
+            "id": 4,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "shoes-06.jpg",
+            "id": 5,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "shoes-07.jpg",
+            "id": 6,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "shoes-08.jpg",
+            "id": 7,
+            "name": "Shoes",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          }
+        ],
+        "description": [
+          "Shoe Width: Medium",
+          "Provides Comfort for daily office use and party wear",
+          "Lifestyle: Formal or casual, slip on shoes",
+          "Where can use it: special meeting, office, wedding, corporate, all festival, and regular use etc"
+        ]
+      },
+
+      {
+        "url": "handbags.jpg",
+        "name": "Handbag",
+        "price": 9,
+        "offerprice": "",
+        "quantity": 1,
+        "id": 2,
+        "relatedProducts": [
+          {
+            "url": "handbag-01.jpg",
+            "id": 0,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-02.jpg",
+            "id": 1,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-03.jpg",
+            "id": 2,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-04.jpg",
+            "id": 3,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-05.jpg",
+            "id": 4,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-06.jpg",
+            "id": 5,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-07.jpg",
+            "id": 6,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-08.jpg",
+            "id": 7,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "handbag-09.jpg",
+            "id": 8,
+            "name": "Handbag",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          }
+        ],
+        "description": [
+          "  Faux leather material emerald colored satchel 20.5 centimeters ",
+          "Do not expose to extreme heat",
+          "Metal Logo",
+          "Internal Compartment",
+          "Back Zipper"
+        ]
+      },
+
+      {
+        "url": "cap.jpg",
+        "name": "Cap",
+        "price": 10,
+        "offerprice": 6,
+        "quantity": 1,
+        "id": 3,
+        "description": [
+          "Material Cotton",
+          "Color Black",
+          "Type Baseball Cap",
+          "Air Cooling with Comfortable wearing",
+          "Adjustable Strap at Back of Cap"
+        ],
+        "relatedProducts": [
+          {
+            "url": "cap-01.jpg",
+            "id": 0,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-02.jpg",
+            "id": 1,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-03.jpg",
+            "id": 2,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-04.jpg",
+            "id": 3,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-05.jpg",
+            "id": 4,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-06.jpg",
+            "id": 5,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-07.jpg",
+            "id": 6,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-08.jpg",
+            "id": 7,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "cap-09.jpg",
+            "id": 8,
+            "name": "Cap",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          }
+        ]
+      },
+
+      {
+        "url": "watch.jpg",
+        "name": "watch",
+        "price": 179,
+        "offerprice": "",
+        "quantity": 1,
+        "id": 4,
+        "relatedProducts": [
+          {
+            "url": "watch-01.jpg",
+            "id": 0,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-02.jpg",
+            "id": 1,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-03.jpg",
+            "id": 2,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-04.jpg",
+            "id": 3,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-05.jpg",
+            "id": 4,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-06.jpg",
+            "id": 5,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-07.jpg",
+            "id": 6,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          },
+          {
+            "url": "watch-08.jpg",
+            "id": 7,
+            "name": "Watch",
+            "quantity": 1,
+            "price": 10,
+            "offerprice": 10
+          }
+        ],
+        "description": [
+          "Dial Color: Blue, Case Shape: Round, Dial Glass Material: Sapphire",
+          "Band Color: Silver, Band Material: Stainless Steel",
+          "Watch Movement Type: Quartz, Watch Display Type: Analog",
+          "Case Material: Stainless Steel, Case Diameter: 42 millimeters"
+        ]
+      }
+  
+    ]

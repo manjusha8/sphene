@@ -1,8 +1,8 @@
-import React, { useEffect, useContext } from "react";
-import { SearchWrapper, Title, Input } from "./Style";
+import React, { useContext } from "react";
+import { SearchWrapper, Input } from "./Style";
 import StateContext from "../../Context/StateContext";
 
-function Search(props) {
+function Search() {
   const { handleInputChange } = useContext(StateContext);
 
   return (
@@ -11,6 +11,7 @@ function Search(props) {
         type="text"
         name="search"
         placeholder="Search your products here ..!"
+        data-test="input"
         onChange={handleInputChange}
       />
     </SearchWrapper>

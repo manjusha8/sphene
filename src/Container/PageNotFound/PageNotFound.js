@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Empty, TitleBar } from "../MainComponent/CartHandler/Style";
 import { Error, Content, IconWrapper, ButtonWrapper, Button } from "./Style";
 import Help from "@material-ui/icons/Help";

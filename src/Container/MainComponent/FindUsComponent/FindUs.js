@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Paragraph, Wrapper, ContentWrapper, Title, Text, Link } from "./Style";
 import { useState } from "react";
 
 function FindUs() {
-  const [contact, setContact] = useState([
+  const [contact] = useState([
     {
       title: "Phone:",
       text: "(123) 123-456",
@@ -32,8 +32,8 @@ function FindUs() {
         Objectively seize scalable metrics whereas proactive e-services.
       </Paragraph>
       <Wrapper>
-        {contact.map((value, key) => (
-          <ContentWrapper>
+        {contact.map((value) => (
+          <ContentWrapper key={value.title}>
             <Title>{value.title}</Title>
             <Text>
               <Link href={value.url}>{value.text}</Link>

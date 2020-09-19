@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import {
   PopularProductsWrapper,
   Wrapper,
@@ -11,7 +11,7 @@ import {
 } from "./Style";
 import StateContext from "../../Context/StateContext";
 
-function PopularProducts(props) {
+function PopularProducts() {
   const { products } = useContext(StateContext);
 
   return (

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   }
   @media (max-width: 320px) {
     display: block;
-    width: 100%;
+    /* width: 100%; */
   }
 `;
 
@@ -44,8 +44,19 @@ export const ImageWrapper = styled.div`
   height: 225px;
   position: relative;
   @media (max-width: 320px) {
-    width: 100%;
-    height: auto;
+    /* width: 225px;
+    margin: 0 auto; */
+  }
+  @media (max-width: 375px) {
+    /* width: 225px;
+    margin: 0 auto; */
+  }
+  @media (max-width: 425px) {
+    /* width: 225px;
+    margin: 0 auto; */
+  }
+  @media (max-width: 768px) {
+    /* width: 225px; */
   }
 `;
 
